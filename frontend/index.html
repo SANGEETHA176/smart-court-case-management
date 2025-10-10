@@ -3,55 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Court Login</title>
+    <title>Login - Smart Court</title>
     <style>
-        body {
+        /* Full screen blue background */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
             font-family: Arial, sans-serif;
-            background: #f3f4f6;
+            background-color: #1e3a8a; /* nice blue */
             display: flex;
-            align-items: center;
             justify-content: center;
-            height: 100vh;
+            align-items: center;
         }
-        .login-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-            width: 320px;
+
+        /* Main card container */
+        .main-content-card {
+            background-color: white;
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 450px;
+            width: 90%;
             text-align: center;
         }
+
+        /* Headings */
         h2 {
-            color: #2c3e50;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 20px;
         }
-        input {
-            width: 90%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+
+        p {
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 25px;
         }
+
+        /* Form elements */
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            border-color: #3b82f6;
+            outline: none;
+            box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Button */
         button {
             width: 100%;
-            padding: 10px;
-            background: #1d4ed8;
+            padding: 15px;
+            background-color: #3b82f6;
             color: white;
+            font-weight: 700;
+            font-size: 18px;
             border: none;
-            border-radius: 5px;
-            font-weight: bold;
+            border-radius: 10px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
         }
+
         button:hover {
-            background: #2563eb;
+            background-color: #2563eb;
+            transform: scale(1.02);
+        }
+
+        /* Forgot password */
+        #forgot-password-link {
+            font-weight: 600;
+            color: #3b82f6;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        #forgot-password-link:hover {
+            color: #1e40af;
+        }
+
+        /* Status text */
+        #login-status {
+            margin-top: 10px;
+            font-weight: 600;
+            color: red;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Smart Court Login</h2>
-        <input type="text" placeholder="Username" id="username"><br>
-        <input type="password" placeholder="Password" id="password"><br>
-        <button>Login</button>
+
+    <div id="login-page">
+        <div class="main-content-card">
+            <h2>Authorized Access Required</h2>
+            <p>Please verify your identity to access the secure Case Management portal.</p>
+
+            <form id="login-form">
+                <div>
+                    <label for="employee-name">Full Name</label>
+                    <input type="text" id="employee-name" required>
+                </div>
+                <div>
+                    <label for="employee-email">Email Address</label>
+                    <input type="email" id="employee-email" required>
+                </div>
+                <div>
+                    <label for="employee-password">Password</label>
+                    <input type="password" id="employee-password" required>
+                </div>
+                <div>
+                    <label for="employee-phone">Phone Number (Optional)</label>
+                    <input type="tel" id="employee-phone">
+                </div>
+                <div>
+                    <label for="employee-type">Employee Type</label>
+                    <select id="employee-type" required>
+                        <option value="">Select Role</option>
+                        <option value="judge">Judge/Magistrate</option>
+                        <option value="attorney">Attorney/Counsel</option>
+                        <option value="clerk">Court Clerk/Admin</option>
+                        <option value="analyst">AI Analyst</option>
+                    </select>
+                </div>
+                <div>
+                    <a href="#" id="forgot-password-link">Forgot Password?</a>
+                </div>
+                <button type="submit">Verify & Login</button>
+                <p id="login-status"></p>
+            </form>
+        </div>
     </div>
+
 </body>
 </html>
