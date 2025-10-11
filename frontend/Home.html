@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VerdictAI | Smart Court Case Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #704226, #d7b776);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 80px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.logo {
+  width: 80px; /* adjust as per your logo size */
+  height: auto;
+  border-radius: 10px; /* optional: soft rounded edges */
+}
+
+.tagline {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  letter-spacing: 1px;
+}
+.logo {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      margin: 30px auto;
+      width: 90%;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero button {
+      background: #d7b776;
+      color: #3b2312;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: #b4935c;
+    }
+
+    /* Features Section */
+    .features {
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .features h3 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      justify-content: center;
+    }
+
+    /* Flip Card Container */
+    .feature-card {
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .feature-card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+    }
+
+    .card-front {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffe8c2;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background: rgba(0, 0, 0, 0.6);
+      font-size: 15px;
+      color: #f1e3d3;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* Roles Section */
+    .roles {
+      text-align: center;
+      padding: 70px 40px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .roles h3 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+
+    .role-card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 16px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .role-card:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-6px);
+    }
+
+    .role-card h4 {
+      font-size: 22px;
+      color: #ffe8c2;
+      margin-bottom: 10px;
+    }
+
+    /* Motivational Section */
+    .motivation {
+      text-align: center;
+      padding: 80px 30px;
+    }
+
+    .motivation h2 {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .motivation button {
+      background: #d7b776;
+      color: #3b2312;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .motivation button:hover {
+      background: #b4935c;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #ffe8c2;
+    }
+
+    footer a {
+      color: #d7b776;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .roles {
+  text-align: center;
+  padding: 60px 20px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin: 50px auto;
+  max-width: 1200px;
+}
+
+.roles h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+}
+
+.role-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.role-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 25px;
+  width: 220px;
+  transition: transform 0.4s ease, background 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.role-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.role-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.role-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: rgba(215, 183, 118, 0.2);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+.role-card:hover img {
+  filter: drop-shadow(0 0 8px #d7b776);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+  <div class="logo-container">
+    <img src="images/logo.jpg" alt="VerdictAI Logo" class="logo">
+    <h1 class="tagline">Smart Court Case Management & Verification System</h1>
+  </div>
+</header>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Revolutionizing Legal Management with Artificial Intelligence</h2>
+    <p>AI-powered case tracking, verification, and analytics for modern courts and legal professionals.</p>
+    <button>Get Started</button>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h3>Our Key Features</h3>
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <div class="card-inner">
+          <div class="card-front">AI-Based Case Verification</div>
+          <div class="card-back">Automatically verify documents, evidence, and case details using intelligent algorithms.</div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="card-inner">
+          <div class="card-front">Smart Case Tracking</div>
+          <div class="card-back">Monitor case progress and receive real-time updates from anywhere.</div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="card-inner">
+          <div class="card-front">Role-Based Access</div>
+          <div class="card-back">Separate dashboards for judges, lawyers, clerks, and citizens ensuring security and privacy.</div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="card-inner">
+          <div class="card-front">Data Analytics</div>
+          <div class="card-back">Generate insights and reports to improve decision-making and court efficiency.</div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="card-inner">
+          <div class="card-front">Secure Record Storage</div>
+          <div class="card-back">All case data is encrypted and securely stored for long-term reliability.</div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="card-inner">
+          <div class="card-front">24/7 Access</div>
+          <div class="card-back">Access the platform anytime, anywhere — justice never sleeps.</div>
+        </div>
+      </div>
+
+      <!-- NEW 4 CARDS -->
+      <div class="feature-card">
+        <div class="card-inner">
+          <div class="card-front">Automated Hearing Scheduling</div>
+          <div class="card-back">Automatically schedule hearings and notify all parties, reducing delays and manual effort.</div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="card-inner">
+          <div class="card-front">Digital Evidence Management</div>
+          <div class="card-back">Upload, verify, and categorize digital evidence with AI-based authenticity checks.</div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="card-inner">
+          <div class="card-front">Smart Notifications</div>
+          <div class="card-back">Receive instant notifications for case updates, hearings, and document approvals.</div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="card-inner">
+          <div class="card-front">Legal Chatbot Assistance</div>
+          <div class="card-back">Get AI-powered legal help 24/7 with instant query support and document guidance.</div>
+        </div>
+      </div>
+      <!-- END OF NEW CARDS -->
+
+    </div>
+  </section>
+
+  <!-- Roles Section -->
+  <section class="roles" id="roles">
+  <h2>Choose Your Role</h2>
+  <div class="role-container">
+    <div class="role-card" onclick="location.href='judge-login.html'">
+      <img src="images/judge.jpg" alt="Judge">
+      <h3>Judge</h3>
+    </div>
+    <div class="role-card" onclick="location.href='lawyer-login.html'">
+      <img src="images/lawyer.jpg" alt="Lawyer">
+      <h3>Lawyer</h3>
+    </div>
+    <div class="role-card" onclick="location.href='clerk-login.html'">
+      <img src="images/clerk.jpg" alt="Clerk">
+      <h3>Clerk</h3>
+    </div>
+    <div class="role-card" onclick="location.href='citizen-login.html'">
+      <img src="images/citizen.jpg" alt="Citizen">
+      <h3>Citizen</h3>
+    </div>
+  </div>
+</section>
+
+  <!-- Motivation -->
+  <section class="motivation">
+    <h2>"Empowering Justice Through Intelligent Automation"</h2>
+    <button>Join VerdictAI Today</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Contact us: support@verdictai.com | +91 98765 43210</p>
+    <p>
+      <a href="#">About</a> | 
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Service</a>
+    </p>
+    <p>&copy; 2025 VerdictAI. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
